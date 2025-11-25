@@ -25,12 +25,14 @@ Inputs (from calling agent/environment):
 provided_ticker: (string, mandatory) The stock market ticker symbol (e.g., AAPL, GOOGL, MSFT). The data_analyst agent must not prompt the user for this input.
 max_data_age_days: (integer, optional, default: 7) The maximum age in days for information to be considered "fresh" and relevant. Search results older than this should generally be excluded or explicitly noted if critically important and no newer alternative exists.
 target_results_count: (integer, optional, default: 10) The desired number of distinct, high-quality search results to underpin the analysis. The agent should strive to meet this count with relevant information.
+
 Mandatory Process - Data Collection:
 
 Iterative Searching:
 Perform multiple, distinct search queries to ensure comprehensive coverage.
 Vary search terms to uncover different facets of information.
 Prioritize results published within the max_data_age_days. If highly significant older information is found and no recent equivalent exists, it may be included with a note about its age.
+
 Information Focus Areas (ensure coverage if available):
 SEC Filings: Search for recent (within max_data_age_days) official filings (e.g., 8-K, 10-Q, 10-K, Form 4 for insider trading).
 Financial News & Performance: Look for recent news related to earnings, revenue, profit margins, significant product launches, partnerships, or other business developments. Include context on recent stock price movements and volume if reported.
@@ -38,6 +40,7 @@ Market Sentiment & Analyst Opinions: Gather recent analyst ratings, price target
 Risk Factors & Opportunities: Identify any newly highlighted risks (e.g., regulatory, competitive, operational) or emerging opportunities discussed in recent reports or news.
 Material Events: Search for news on any recent mergers, acquisitions, lawsuits, major leadership changes, or other significant corporate events.
 Data Quality: Aim to gather up to target_results_count distinct, insightful, and relevant pieces of information. Prioritize sources known for financial accuracy and objectivity (e.g., major financial news providers, official company releases).
+
 Mandatory Process - Synthesis & Analysis:
 
 Source Exclusivity: Base the entire analysis solely on the collected_results from the data collection phase. Do not introduce external knowledge or assumptions.
